@@ -26,7 +26,7 @@ public class ActivitesDAO {
 				Activites act = new Activites();
 				act.setId(rs.getString("ID"));
 				act.setAdate(rs.getString("ADATE"));
-				act.setDate(rs.getString("DATE"));
+				act.setDate(rs.getString("ACTDATE"));
 				act.setStime(rs.getString("STIME"));
 				act.setEtime(rs.getString("ETIME"));
 				act.setPlace(rs.getString("PLACE"));
@@ -52,7 +52,7 @@ public class ActivitesDAO {
 				Activites act = new Activites();
 				act.setId(rs.getString("ID"));
 				act.setAdate(rs.getString("ADATE"));
-				act.setDate(rs.getString("DATE"));
+				act.setDate(rs.getString("ACTDATE"));
 				act.setStime(rs.getString("STIME"));
 				act.setEtime(rs.getString("ETIME"));
 				act.setPlace(rs.getString("PLACE"));
@@ -81,18 +81,18 @@ public class ActivitesDAO {
 			String fdate = dtformat.format(date);
 			act.setAdate(fdate);
 			String sql = "INSERT INTO Action "
-					+ "( id, adate , date, STIME, ETIME, place, reason, remarks, userid) "
+					+ "( id, adate , actdate, STIME, ETIME, place, reason, remarks, userid) "
 					+ "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, act.getId()); // id
-			pStmt.setString(2, act.getAdate());// ’Ç‰Á‚ÌŠÔ
-			pStmt.setString(3, act.getDate());// “ú•t
-			pStmt.setString(4, act.getStime());// ŠJnŠÔ
-			pStmt.setString(5, act.getEtime());// I—¹ŠÔ
-			pStmt.setString(6, act.getPlace());// êŠ
-			pStmt.setString(7, act.getReason());// ——R
-			pStmt.setString(8, act.getRemarks());// ”õl
-			pStmt.setString(9, act.getUserid());// ƒ†[ƒU[ID
+			pStmt.setString(2, act.getAdate());// ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
+			pStmt.setString(3, act.getDate());// ï¿½ï¿½ï¿½t
+			pStmt.setString(4, act.getStime());// ï¿½Jï¿½nï¿½ï¿½ï¿½ï¿½
+			pStmt.setString(5, act.getEtime());// ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			pStmt.setString(6, act.getPlace());// ï¿½êŠ
+			pStmt.setString(7, act.getReason());// ï¿½ï¿½ï¿½R
+			pStmt.setString(8, act.getRemarks());// ï¿½ï¿½ï¿½l
+			pStmt.setString(9, act.getUserid());// ï¿½ï¿½ï¿½[ï¿½Uï¿½[ID
 			int result = pStmt.executeUpdate();
 			if (result != 1) {
 				return false;
